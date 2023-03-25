@@ -1,0 +1,47 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <title>{% block title %} {% endblock %}</title>
+        <style>
+            body {
+                background-image: url('{% static 'images/Background.jpg' %}');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Meu Site de Doces</h1>
+        <nav>
+            <a href="{% url 'home' %}">Início</a>
+            <a href="{% url 'lista_doce' %}">Nossos Doces</a>
+        </nav>
+        <div class="container">
+            {% block content %}
+  <div class="row">
+    <div class="col-md-4">
+      <a href="{% url 'bolos' %}">
+        <img src="{% static 'images/Bolos.png' %}" alt="Bolos">
+        <h3>Bolos</h3>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'tortas' %}">
+        <img src="{% static 'images/Tortas.png' %}" alt="Tortas">
+        <h3>Tortas</h3>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'doces' %}">
+        <img src="{% static 'images/Doces.png' %}" alt="Doces">
+        <h3>Docinhos</h3>
+      </a>
+    </div>
+  </div>
+{% endblock %}
+        </div>
+    </body>
+    </html>

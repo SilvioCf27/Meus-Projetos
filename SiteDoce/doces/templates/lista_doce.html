@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container doces">
+    <h1>Lista de Doces</h1>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for doce in doces %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ doce.imagem.url }}" class="card-img-top" alt="{{ doce.nome }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ doce.nome }}</h5>
+      <p class="card-text">{{ doce.descricao }}</p>
+      <a href="#" class="btn btn-primary">Comprar</a>
+    </div>
+  </div>
+{% empty %}
+  <p>Nenhum doce encontrado.</p>
+    {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
